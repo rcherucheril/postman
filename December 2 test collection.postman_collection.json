@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "3e8d243d-586c-4b31-a79d-4ad9a6155fa1",
+		"name": "December 2 test collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:1111/nationality/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"USA\"\t\n\t\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1111/nationality/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1111",
+					"path": [
+						"nationality",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1111/nationality/all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19556079-3715-4c4b-8632-84910b236fc4",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"/*",
+							"pm.test(\"response body has json with request queries\", function () {",
+							"    pm.response.to.have.jsonBody('id', '1')",
+							"        .and.have.jsonBody('name', 'USA');",
+							"});",
+							"*/",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1111/nationality/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1111",
+					"path": [
+						"nationality",
+						"all"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:1111/nationality/all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:1111/nationality/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1111",
+							"path": [
+								"nationality",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 02 Dec 2018 14:35:42 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USA\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"USA\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"USA\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:1111/user/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"user2\",\n\"rolenumber\":\"333\",\n\"password\":\"XXX22201!\"\n\t\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1111/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1111",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1111/user/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1111/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1111",
+					"path": [
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
